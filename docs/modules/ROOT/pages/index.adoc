@@ -1,0 +1,33 @@
+= Instruction flow extension
+:navtitle: Overview
+
+Menu-style, interactive instruction flows for Antora sites: users pick options (buttons), follow branches, share state via URL query parameters, and print expanded paths.
+
+This component documents the `@antora-supplemental/instruction-flow` package (repository: `asciidoc-interactive` in the https://github.com/antora-supplemental[antora-supplemental] organization).
+
+== Quick facts
+
+* Block style `instructionflow` with a JSON5 graph inside an example block (`====`).
+* CSS and client script are embedded in the page output (no UI bundle required for basic use).
+* See xref:roadmap.adoc[Roadmap & TODO] for what is *not* shipped yet.
+
+== Where this site is built
+
+Canonical documentation is published as part of the *Antora Supplemental* aggregated site from the `docs` repository (`antora-supplemental/docs`), not as a standalone Antora project inside this repo.
+
+Local build (sibling checkouts):
+
+[source,shell]
+----
+cd path/to/antora-supplemental/docs
+pnpm install
+pnpm run build:local
+----
+
+== Authoring (summary)
+
+Register the extension in the playbook (see the `docs` playbook in `antora-supplemental/docs` for a working path via `node_modules`).
+
+Use quoted keys for node ids that contain hyphens in JSON5.
+
+Full syntax and layout: stay on xref:demo.adoc[Live demo] and the package `README.adoc` in the repository.

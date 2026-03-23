@@ -1,0 +1,43 @@
+= Roadmap & TODO
+:navtitle: Roadmap & TODO
+
+This page tracks **delivered** behavior versus **planned** work for the instruction-flow extension.
+It replaces a loose “Roadmap” paragraph in the package README so nothing is only implied.
+
+== Delivered (MVP)
+
+These capabilities exist in the current codebase:
+
+* *Asciidoctor block* `instructionflow` on example blocks (`====`) with JSON5 body (`start`, `nodes`, `choice` / `content`).
+* *Embedded* stylesheet, client script, and flow JSON in generated HTML (self-contained pages).
+* *Toolbar:* Back, Start over, Expand all for print.
+* *Shareable URL state:* query parameter `iflow_<flow-id>=optionId1,optionId2,...` (comma-separated option ids in order).
+* *Breadcrumb* line (live region) showing the current path through node titles.
+* *Validation* of the graph at build time (missing `next`, unknown nodes, etc.).
+* *Documentation* published via the Antora Supplemental aggregated site (repository `antora-supplemental/docs`, portal component `docs`), together with this `instruction-flow` component—not a separate Antora site only for the package repo.
+
+== Roadmap (planned capability)
+
+These items are *design goals* from the original product brief and follow-ups; they are **not** implemented in the current extension unless called out under *Delivered*.
+
+* *Inline choice macro* — Single-line prompts such as `Which package manager?` with `[npm][pnpm][yarn][bun]`-style controls without hand-authored JSON for that line.
+* *AsciiDoc-native flow authoring* — Nested lists, roles, or includes so authors rarely edit raw JSON5 (may be a tree processor or preprocessor on top of the same runtime).
+* *Lazy-loaded branches* — Fetch or include content only when a branch is chosen, for very large flows (may require generator or UI bundle changes).
+* *DOM / SEO policy knobs* — Explicit recursion depth for skeleton output, optional separate “kitchen sink” print view.
+* *Analytics hook* — Fires a custom DOM event (or callback) when the user selects an option so hosts can measure paths.
+* *Strong no-JS story* — Dedicated `<noscript>` or server-rendered outline that is visible without relying on “all sections in the DOM” alone.
+* *Full-site mode* — Optional replacement or mirror of the site nav using a root instruction flow (long-term; out of scope for the embeddable block).
+
+== TODO (engineering backlog)
+
+Concrete tasks that map to the roadmap (for contributors):
+
+* [ ] **Inline macro** — Design `instruction-choice` (or similar) inline syntax; implement as Asciidoctor inline macro processor; document in this component.
+* [ ] **List / role syntax** — Spike: map nested AsciiDoc under `[instructionflow]` to the internal graph without JSON5 for simple flows.
+* [ ] **Optional external assets** — Allow stylesheet/script to load from `/_/css` / `/_/js` when a supplemental UI bundle is present, instead of embedding only.
+* [ ] **CI** — Ensure `antora-supplemental/docs` workflow clones `asciidoc-interactive` next to the docs repo so `file:../asciidoc-interactive` resolves; document fork workflows if the GitHub repo name differs.
+* [ ] **npm publish** — Publish `@antora-supplemental/instruction-flow` so playbooks can depend on a version instead of a file path (optional alternative to the file dependency).
+
+== How to update this page
+
+When you ship a feature from *Roadmap* or *TODO*, move it to *Delivered*, uncheck the backlog item, and mention it in the package changelog if you maintain one.

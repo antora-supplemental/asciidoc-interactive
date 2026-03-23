@@ -1,0 +1,90 @@
+= Antora / Asciidoctor instruction flow
+
+Interactive, menu-style instruction flows for documentation (choose-your-path install guides, setup wizards, and similar content).
+
+Design notes live in `interactive document extension idea for asciidoctor, antora.md`.
+
+== Where documentation lives
+
+* *Canonical docs site:* built from the `antora-supplemental/docs` repository (Antora Supplemental aggregated site). Component `instruction-flow` includes overview, *Roadmap & TODO* (`docs/modules/ROOT/pages/roadmap.adoc` in this repo), and a live demo page.
+* *This README* — quick wiring for package consumers.
+
+Do *not* rely on a second Antora playbook in this repo; the previous standalone example playbook was removed in favor of the shared docs site.
+
+== Build the docs site locally
+
+From a checkout that has `docs` and `asciidoc-interactive` as siblings under `antora-supplemental`:
+
+[source,shell]
+----
+cd docs
+pnpm install
+pnpm run build:local
+----
+
+The `docs` package depends on this repo via `file:../asciidoc-interactive` and registers the extension from `node_modules`.
+
+== Status (summary)
+
+MVP shipped:
+
+* Asciidoctor block style `instructionflow` (example block `====`) containing a https://json5.org/[JSON5] graph: `start`, `nodes` with `choice` or `content` steps.
+* Embedded CSS, client script, and flow data in the generated HTML (no separate UI bundle required for basic use).
+* Query-string state `iflow_<flow-id>=optionId1,optionId2,...` for shareable links; *Back*, *Start over*, and *Expand all for print* controls.
+
+Undelivered / planned work is tracked in the docs component: see *Roadmap & TODO* in the published site (source: `docs/modules/ROOT/pages/roadmap.adoc`).
+
+== Use in another Antora project
+
+. Add a dependency on this package (copy `lib/` and `supplemental_ui/`, or `pnpm add file:../asciidoc-interactive` / a published version when available).
+. Register the extension:
+
+[source,yaml]
+----
+asciidoc:
+  extensions:
+    - ./node_modules/@antora-supplemental/instruction-flow/lib/instruction-flow-extension.js
+----
+
+. Local content sources must be a Git working tree (Antora requirement). Run `git init` and commit at least once if you only have a folder.
+
+== Authoring
+
+[source,asciidoc]
+----
+[instructionflow#my-flow]
+====
+{
+  id: "my-flow",
+  start: "step1",
+  nodes: {
+    step1: {
+      type: "choice",
+      title: "Pick one",
+      options: [
+        { id: "a", label: "Option A", next: "done" },
+      ],
+    },
+    done: { type: "content", html: "<p>Done.</p>" },
+  },
+}
+----
+----
+
+Use quoted keys for node ids that contain hyphens (for example `"choose-os"`).
+
+`content` nodes use trusted HTML in `html` (same trust model as normal AsciiDoc passthrough).
+
+== Package layout
+
+* `lib/instruction-flow-extension.js` — Antora-scoped Asciidoctor extension
+* `lib/flow-html.js` — JSON graph validation and HTML for each flow
+* `docs/` — Antora component consumed by `antora-supplemental/docs` (not a separate site)
+* `supplemental_ui/` — optional standalone CSS/JS (also embedded by the extension)
+
+== Checks
+
+[source,shell]
+----
+pnpm run test:convert
+----

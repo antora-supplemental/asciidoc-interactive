@@ -1,4 +1,5 @@
-= Interactive instruction flow
+= Live demo
+:navtitle: Live demo
 
 Below is a sample flow inspired by install docs: pick an OS, then a package manager, then see the command.
 
@@ -8,7 +9,7 @@ Below is a sample flow inspired by install docs: pick an OS, then a package mana
   id: "install-antora",
   start: "choose-os",
   nodes: {
-    choose-os: {
+    "choose-os": {
       type: "choice",
       title: "Choose your operating system",
       options: [
@@ -17,7 +18,7 @@ Below is a sample flow inspired by install docs: pick an OS, then a package mana
         { id: "windows", label: "Windows", next: "choose-pm" },
       ],
     },
-    choose-pm: {
+    "choose-pm": {
       type: "choice",
       title: "Which package manager?",
       options: [

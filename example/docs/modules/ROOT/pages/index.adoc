@@ -1,3 +1,0 @@
-= Instruction flow example
-
-This mini site demonstrates the xref:instruction-flow.adoc[interactive instruction flow] extension.
