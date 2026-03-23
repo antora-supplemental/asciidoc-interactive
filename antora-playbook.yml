@@ -1,0 +1,18 @@
+site:
+  title: Instruction flow example
+  start_page: ROOT::index.adoc
+  url: https://example.org
+
+content:
+  sources:
+    - url: .
+      start_path: example/docs
+
+asciidoc:
+  extensions:
+    - ./lib/instruction-flow-extension.js
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true

@@ -1,0 +1,36 @@
+{
+  "name": "@antora-supplemental/instruction-flow",
+  "version": "0.1.0",
+  "description": "Asciidoctor / Antora extension: interactive instruction flows (menu-style docs) from JSON5",
+  "main": "lib/instruction-flow-extension.js",
+  "exports": {
+    ".": "./lib/instruction-flow-extension.js"
+  },
+  "files": [
+    "lib",
+    "supplemental_ui"
+  ],
+  "scripts": {
+    "build:example": "antora antora-playbook.yml",
+    "test:convert": "node lib/smoke-convert.js"
+  },
+  "keywords": [
+    "antora",
+    "asciidoctor",
+    "asciidoc",
+    "extension",
+    "interactive",
+    "documentation"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "json5": "^2.2.3"
+  },
+  "devDependencies": {
+    "antora": "^3.1.14"
+  },
+  "packageManager": "pnpm@10.30.3"
+}

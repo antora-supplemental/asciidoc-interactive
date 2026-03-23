@@ -1,0 +1,94 @@
+.instruction-flow {
+  border: 1px solid var(--color-border-secondary, #ccc);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  background: var(--color-background-secondary, #f8f9fa);
+}
+
+.instruction-flow__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.instruction-flow__toolbar button {
+  font: inherit;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border, #999);
+  background: var(--color-background, #fff);
+  cursor: pointer;
+}
+
+.instruction-flow__toolbar button:hover {
+  filter: brightness(0.97);
+}
+
+.instruction-flow__toolbar button:focus-visible {
+  outline: 2px solid var(--color-focus, #06c);
+  outline-offset: 2px;
+}
+
+.instruction-flow__breadcrumb {
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #555);
+  margin-bottom: 0.75rem;
+  min-height: 1.25em;
+}
+
+.instruction-flow__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.instruction-flow__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.instruction-flow__choice {
+  font: inherit;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border, #888);
+  background: var(--color-background, #fff);
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.instruction-flow__choice:hover {
+  border-color: var(--color-focus, #06c);
+}
+
+.instruction-flow__choice:focus-visible {
+  outline: 2px solid var(--color-focus, #06c);
+  outline-offset: 2px;
+}
+
+.instruction-flow__body :first-child {
+  margin-top: 0;
+}
+
+.instruction-flow__body :last-child {
+  margin-bottom: 0;
+}
+
+.instruction-flow__outline {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+@media print {
+  .instruction-flow__toolbar {
+    display: none;
+  }
+
+  .instruction-flow--print-all .instruction-flow__node {
+    display: block !important;
+    margin-bottom: 1rem;
+  }
+}

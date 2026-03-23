@@ -1,0 +1,45 @@
+= Interactive instruction flow
+
+Below is a sample flow inspired by install docs: pick an OS, then a package manager, then see the command.
+
+[instructionflow#install-antora]
+====
+{
+  id: "install-antora",
+  start: "choose-os",
+  nodes: {
+    choose-os: {
+      type: "choice",
+      title: "Choose your operating system",
+      options: [
+        { id: "linux", label: "Linux", hint: "Including WSL", next: "choose-pm" },
+        { id: "macos", label: "macOS", next: "choose-pm" },
+        { id: "windows", label: "Windows", next: "choose-pm" },
+      ],
+    },
+    choose-pm: {
+      type: "choice",
+      title: "Which package manager?",
+      options: [
+        { id: "npm", label: "npm", next: "cmd-npm" },
+        { id: "pnpm", label: "pnpm", next: "cmd-pnpm" },
+        { id: "yarn", label: "Yarn", next: "cmd-yarn" },
+      ],
+    },
+    "cmd-npm": {
+      type: "content",
+      html: "<p>Install Antora globally:</p><pre><code>npm i -g @antora/cli</code></pre>",
+    },
+    "cmd-pnpm": {
+      type: "content",
+      html: "<p>Install Antora globally:</p><pre><code>pnpm add -g @antora/cli</code></pre>",
+    },
+    "cmd-yarn": {
+      type: "content",
+      html: "<p>Install Antora globally:</p><pre><code>yarn global add @antora/cli</code></pre>",
+    },
+  },
+}
+====
+
+TIP: Use *Back* and *Start over* to try another path. The URL query string stores your choices (for example `iflow_install-antora=linux,npm`) so you can share a link.
