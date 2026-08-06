@@ -1,17 +1,43 @@
+ifndef::env-github[:icons: font]
+:toc: preamble
+:toclevels: 2
+:sectanchors:
+endif::[]
+
+ifndef::env-github[]
+image:https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Contributors,link=https://github.com/antora-supplemental/asciidoc-interactive/graphs/contributors]
+image:https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Forks,link=https://github.com/antora-supplemental/asciidoc-interactive/network/members]
+image:https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Stars,link=https://github.com/antora-supplemental/asciidoc-interactive/stargazers]
+image:https://img.shields.io/github/issues/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Issues,link=https://github.com/antora-supplemental/asciidoc-interactive/issues]
+endif::[]
+
+ifdef::env-github[]
+image:https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Contributors]
+image:https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Forks]
+image:https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Stars]
+image:https://img.shields.io/github/issues/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Issues]
+endif::[]
+
 = Antora / Asciidoctor instruction flow
+
+Asciidoctor/Antora extension: interactive instruction flows (JSON5).
+
+link:https://antora-supplemental.github.io/docs[Explore the docs] ·
+link:https://github.com/antora-supplemental/asciidoc-interactive/issues[Report Bug] ·
+link:https://github.com/antora-supplemental/asciidoc-interactive/issues[Request Feature]
+
+== About The Project
 
 Interactive, menu-style instruction flows for documentation (choose-your-path install guides, setup wizards, and similar content).
 
 Design notes live in `interactive document extension idea for asciidoctor, antora.md`.
-
-== Where documentation lives
 
 * *Canonical docs site:* built from the `antora-supplemental/docs` repository (Antora Supplemental aggregated site). Component `instruction-flow` includes overview, *Roadmap & TODO* (`docs/modules/ROOT/pages/roadmap.adoc` in this repo), and a live demo page.
 * *This README* — quick wiring for package consumers.
 
 Do *not* rely on a second Antora playbook in this repo; the previous standalone example playbook was removed in favor of the shared docs site.
 
-== Build the docs site locally
+== Installation
 
 From a checkout that has `docs` and `asciidoc-interactive` as siblings under `antora-supplemental`:
 
@@ -24,7 +50,9 @@ pnpm run build:local
 
 The `docs` package depends on this repo via `file:../asciidoc-interactive` and registers the extension from `node_modules`.
 
-== Status (summary)
+== Usage
+
+=== Status (summary)
 
 MVP shipped:
 
@@ -34,7 +62,7 @@ MVP shipped:
 
 Undelivered / planned work is tracked in the docs component: see *Roadmap & TODO* in the published site (source: `docs/modules/ROOT/pages/roadmap.adoc`).
 
-== Use in another Antora project
+=== Use in another Antora project
 
 . Add a dependency on this package (copy `lib/` and `supplemental_ui/`, or `pnpm add file:../asciidoc-interactive` / a published version when available).
 . Register the extension:
@@ -48,7 +76,7 @@ asciidoc:
 
 . Local content sources must be a Git working tree (Antora requirement). Run `git init` and commit at least once if you only have a folder.
 
-== Authoring
+=== Authoring
 
 [source,asciidoc]
 ----
@@ -75,16 +103,23 @@ Use quoted keys for node ids that contain hyphens (for example `"choose-os"`).
 
 `content` nodes use trusted HTML in `html` (same trust model as normal AsciiDoc passthrough).
 
-== Package layout
+=== Package layout
 
 * `lib/instruction-flow-extension.js` — Antora-scoped Asciidoctor extension
 * `lib/flow-html.js` — JSON graph validation and HTML for each flow
 * `docs/` — Antora component consumed by `antora-supplemental/docs` (not a separate site)
 * `supplemental_ui/` — optional standalone CSS/JS (also embedded by the extension)
 
-== Checks
+=== Checks
 
 [source,shell]
 ----
 pnpm run test:convert
 ----
+
+== Contact
+
+Antora Supplemental — support@antora-supplemental.org
+
+* Project: https://github.com/antora-supplemental/asciidoc-interactive
+* Site: https://antora-supplemental.org
