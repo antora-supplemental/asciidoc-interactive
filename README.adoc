@@ -4,19 +4,11 @@ ifndef::env-github[:icons: font]
 :sectanchors:
 endif::[]
 
-ifndef::env-github[]
+[[readme-top]]
 image:https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Contributors,link=https://github.com/antora-supplemental/asciidoc-interactive/graphs/contributors]
 image:https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Forks,link=https://github.com/antora-supplemental/asciidoc-interactive/network/members]
 image:https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Stars,link=https://github.com/antora-supplemental/asciidoc-interactive/stargazers]
 image:https://img.shields.io/github/issues/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Issues,link=https://github.com/antora-supplemental/asciidoc-interactive/issues]
-endif::[]
-
-ifdef::env-github[]
-image:https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Contributors]
-image:https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Forks]
-image:https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Stars]
-image:https://img.shields.io/github/issues/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Issues]
-endif::[]
 
 = Antora / Asciidoctor instruction flow
 
@@ -37,6 +29,8 @@ Design notes live in `interactive document extension idea for asciidoctor, antor
 
 Do *not* rely on a second Antora playbook in this repo; the previous standalone example playbook was removed in favor of the shared docs site.
 
+link:#readme-top[back to top]
+
 == Installation
 
 From a checkout that has `docs` and `asciidoc-interactive` as siblings under `antora-supplemental`:
@@ -49,6 +43,8 @@ pnpm run build:local
 ----
 
 The `docs` package depends on this repo via `file:../asciidoc-interactive` and registers the extension from `node_modules`.
+
+link:#readme-top[back to top]
 
 == Usage
 
@@ -117,9 +113,13 @@ Use quoted keys for node ids that contain hyphens (for example `"choose-os"`).
 pnpm run test:convert
 ----
 
+link:#readme-top[back to top]
+
 == Contact
 
 Antora Supplemental — support@antora-supplemental.org
 
 * Project: https://github.com/antora-supplemental/asciidoc-interactive
 * Site: https://antora-supplemental.org
+
+link:#readme-top[back to top]
