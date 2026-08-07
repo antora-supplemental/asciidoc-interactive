@@ -4,7 +4,53 @@ ifndef::env-github[:icons: font]
 :sectanchors:
 endif::[]
 
-[[readme-top]]
+ifdef::env-github[]
+++++
+<a id="readme-top"></a>
+<div align="center">
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/graphs/contributors"><img src="https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/network/members"><img src="https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/stargazers"><img src="https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Stars"></a>
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/issues"><img src="https://img.shields.io/github/issues/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Issues"></a>
+<br />
+<h3 align="center">Antora / Asciidoctor instruction flow</h3>
+<p align="center">
+Asciidoctor/Antora extension: interactive instruction flows (JSON5).<br />
+<a href="https://antora-supplemental.github.io/docs"><strong>Explore the docs ·</strong></a>
+<br /><br />
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/issues">Report Bug</a>
+&middot;
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/issues">Request Feature</a>
+</p>
+</div>
+++++
+endif::[]
+
+ifndef::env-github[]
+
+ifdef::env-github[]
+++++
+<a id="readme-top"></a>
+<div align="center">
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/graphs/contributors"><img src="https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/network/members"><img src="https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/stargazers"><img src="https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Stars"></a>
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/issues"><img src="https://img.shields.io/github/issues/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge" alt="Issues"></a>
+<br />
+<h3 align="center">Antora / Asciidoctor instruction flow</h3>
+<p align="center">
+Asciidoctor/Antora extension: interactive instruction flows (JSON5).<br />
+<a href="https://antora-supplemental.github.io/docs"><strong>Explore the docs ·</strong></a>
+<br /><br />
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/issues">Report Bug</a>
+&middot;
+<a href="https://github.com/antora-supplemental/asciidoc-interactive/issues">Request Feature</a>
+</p>
+</div>
+++++
+endif::[]
+
+ifndef::env-github[]
 image:https://img.shields.io/github/contributors/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Contributors,link=https://github.com/antora-supplemental/asciidoc-interactive/graphs/contributors]
 image:https://img.shields.io/github/forks/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Forks,link=https://github.com/antora-supplemental/asciidoc-interactive/network/members]
 image:https://img.shields.io/github/stars/antora-supplemental/asciidoc-interactive.svg?style=for-the-badge[Stars,link=https://github.com/antora-supplemental/asciidoc-interactive/stargazers]
@@ -17,6 +63,7 @@ Asciidoctor/Antora extension: interactive instruction flows (JSON5).
 link:https://antora-supplemental.github.io/docs[Explore the docs] ·
 link:https://github.com/antora-supplemental/asciidoc-interactive/issues[Report Bug] ·
 link:https://github.com/antora-supplemental/asciidoc-interactive/issues[Request Feature]
+endif::[]
 
 == About The Project
 
@@ -29,8 +76,9 @@ Design notes live in `interactive document extension idea for asciidoctor, antor
 
 Do *not* rely on a second Antora playbook in this repo; the previous standalone example playbook was removed in favor of the shared docs site.
 
-link:#readme-top[back to top]
-
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 == Installation
 
 From a checkout that has `docs` and `asciidoc-interactive` as siblings under `antora-supplemental`:
@@ -44,8 +92,9 @@ pnpm run build:local
 
 The `docs` package depends on this repo via `file:../asciidoc-interactive` and registers the extension from `node_modules`.
 
-link:#readme-top[back to top]
-
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 == Usage
 
 === Status (summary)
@@ -113,8 +162,9 @@ Use quoted keys for node ids that contain hyphens (for example `"choose-os"`).
 pnpm run test:convert
 ----
 
-link:#readme-top[back to top]
-
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 == Contact
 
 Antora Supplemental — support@antora-supplemental.org
@@ -122,4 +172,6 @@ Antora Supplemental — support@antora-supplemental.org
 * Project: https://github.com/antora-supplemental/asciidoc-interactive
 * Site: https://antora-supplemental.org
 
-link:#readme-top[back to top]
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
