@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "@antora-supplemental/instruction-flow",
   "version": "0.1.0",
   "description": "Asciidoctor / Antora extension: interactive instruction flows (menu-style docs) from JSON5",
