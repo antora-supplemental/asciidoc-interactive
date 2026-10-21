@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "@antora-supplemental/instruction-flow",
   "version": "0.1.0",
   "description": "Asciidoctor / Antora extension: interactive instruction flows (menu-style docs) from JSON5",
@@ -11,7 +11,8 @@
     "supplemental_ui"
   ],
   "scripts": {
-    "test:convert": "node lib/smoke-convert.js"
+    "test:convert": "node lib/smoke-convert.js",
+    "test": "node --test test/*.test.js"
   },
   "keywords": [
     "antora",

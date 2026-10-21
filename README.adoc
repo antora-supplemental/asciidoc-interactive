@@ -160,7 +160,12 @@ Use quoted keys for node ids that contain hyphens (for example `"choose-os"`).
 [source,shell]
 ----
 pnpm run test:convert
+pnpm test
 ----
+
+=== Changelog
+
+See link:docs/modules/ROOT/pages/changelog.adoc[changelog] (also published in the docs hub).
 
 ++++
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

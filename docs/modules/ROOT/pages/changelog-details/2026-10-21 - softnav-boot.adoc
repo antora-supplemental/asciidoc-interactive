@@ -1,0 +1,13 @@
+﻿= 2026-10-21
+:hide-page:
+:navtree-parent: changelog.adoc
+
+== Live demo survives in-site navigation
+
+*Symptom.* On the xref:demo.adoc[Live demo], the flow area was empty (no choices, no breadcrumb) when you arrived through the left nav or any in-article link. A full page reload showed it correctly.
+
+*Cause.* SoftNav swaps the article into the live page after parsing the fetched HTML with `DOMParser`. Scripts in a parsed document never run, so the inline client script that defines `window.IFlow` and mounts the flow was skipped. Every step stayed `hidden`.
+
+*Fix.* The client runtime is now emitted inert (`<script type="text/plain">`) and a 1x1 image with an `onload` handler starts it. Inline event handlers fire on swapped-in nodes and on normal page loads, so both paths mount the flow. The runtime is installed once per page; extra flows reuse it.
+
+*Check.* `pnpm test` covers the emitted markup (no bare executable inline script, handler present).

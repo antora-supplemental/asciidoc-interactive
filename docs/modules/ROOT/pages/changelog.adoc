@@ -1,0 +1,12 @@
+﻿= Changelog
+:navtitle: Changelog
+:toclevels: 3
+
+Functional changes to the instruction-flow extension, newest first.
+
+== 2026-10-21
+
+=== Live demo survives in-site navigation
+
+* Fixed a blank demo when the page was reached through a left-nav or in-article link.
+* See xref:changelog-details/2026-10-21 - softnav-boot.adoc[details].
